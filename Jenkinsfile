@@ -1,7 +1,7 @@
 node {
 
   stage("GIT Checkout") {
-    Checkout scm
+    checkout scm
   }
 
   stage("declare the variables required for EKS switch") {

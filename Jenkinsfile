@@ -23,6 +23,7 @@ node {
   }
 
   stage("check role is working or not") {
+      sh "pwd"
       sh "cat .aws/credentials"
   }
 }

@@ -37,7 +37,7 @@ node {
     dir("Helmcharts") {
       sh "pwd"
       sh "ls"
-      sh "helm install nginx /nginxhelm"
+      sh "helm install nginx nginxhelm/"
     }
   }
 }

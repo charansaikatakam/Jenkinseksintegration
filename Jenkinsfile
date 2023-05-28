@@ -36,6 +36,7 @@ node {
   stage("deploy the helm") {
     dir("Helmcharts") {
       sh "pwd"
+      sh "ls"
       sh "helm install nginx /nginxhelm"
     }
   }

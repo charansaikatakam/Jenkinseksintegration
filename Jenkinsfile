@@ -23,6 +23,18 @@ node {
   }
 
   stage("check role is working or not") {
-      sh "cat /var/lib/jenkins/.aws/credentials"
+      sh "cat .aws/credentials"
+  }
+
+  stage("check the cluster accessibility"){
+    catchError{
+      sh "aws eks update-kubeconfig --name anythingformecluster --profile eksadminrole"
+      sh "kubectl get pods -n kube-system"
+    }
+  }
+
+  stage("deploy the helm") {
+    dir("Helmcharts\nginxhelm")
+    sh "helm install nginxhelm ./"
   }
 }

@@ -34,7 +34,8 @@ node {
   }
 
   stage("deploy the helm") {
-    dir("Helmcharts\nginxhelm")
-    sh "helm install nginxhelm ./"
+    dir("Helmcharts\nginxhelm") {
+      sh "helm install nginxhelm ./"
+    }
   }
 }

@@ -23,7 +23,7 @@ node {
   }
 
   stage("check role is working or not") {
-      sh "cat .aws/credentials"
+      sh "cat /var/lib/jenkins/.aws/credentials"
   }
 
   stage("check the cluster accessibility"){
